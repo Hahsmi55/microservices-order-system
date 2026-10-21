@@ -9,9 +9,9 @@ the choreography style of the saga pattern.
 
 | Service            | Port | Database              | Owns                          |
 |--------------------|------|------------------------|--------------------------------|
-| order-service      | 4005 | orders-processing      | Order                          |
-| inventory-service  | 4006 | inventory-processing   | Product, Reservation           |
-| payment-service    | 4007 | payment-processing     | Payment                        |
+| order-service      | 3001 | orders-processing      | Order                          |
+| inventory-service  | 3002 | inventory-processing   | Product, Reservation           |
+| payment-service    | 3000 | payment-processing     | Payment                        |
 
 ## The saga
 
