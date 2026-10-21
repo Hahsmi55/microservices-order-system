@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Payment {
+  id              String   @id @default(uuid())
+  orderId         Int   @unique
+  amount          Decimal  @db.Decimal(12, 2)
+  currency        String   @default("PKR")
+  status          PaymentStatus @default(PENDING)
+  safepayTracker  String?  // token / tracker from SafePay
+  checkoutUrl     String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
